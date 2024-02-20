@@ -5,6 +5,7 @@ let fillRate = 1;
 let counter = 0;
 let currentQuestNumber = 1;
 let questRequirements = [100, 3319, 110157];
+let specialPoints = 0;
 
 function updateQuestDisplay() {
     if (currentQuestNumber > questRequirements.length) {
