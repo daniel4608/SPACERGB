@@ -81,3 +81,17 @@ document.getElementById('upgradeButton').onclick = function() {
     }
 };
 
+document.getElementById("statsButton").addEventListener("click", function() {
+    var statsSection = document.getElementById("statsSection");
+    if (statsSection.style.display === "none") {
+        statsSection.style.display = "block";
+        updateStats(); // Call this function to update stats whenever the stats section is opened
+    } else {
+        statsSection.style.display = "none";
+    }
+});
+
+function updateStats() {
+    document.getElementById("totalCounterDisplay").textContent = counter; // Assume 'counter' holds the total counters value
+    document.getElementById("totalSPDisplay").textContent = specialPoints; // Assume 'specialPoints' holds the total SP value
+}
