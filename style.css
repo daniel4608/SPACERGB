@@ -165,44 +165,41 @@ button:hover {
     background-color: #709369; /* Highlight on hover */
 }
 
-#spSection {
-    color: white;
+.counter-sp-display {
     text-align: center;
+    color: white;
     margin: 20px;
 }
 
-#spSection h2, #spSection h3 {
-    color: #FFD700; /* Gold color for headings to make them stand out */
+#currentQuest {
+    text-align: center;
+    margin: 20px;
+    color: white;
 }
 
-#quests ul {
-    list-style-type: none; /* Removes the default list styling */
-    padding: 0;
+#currentQuest h3 {
+    color: #FFD700; /* Gold color for heading */
 }
 
-#quests li {
-    background-color: #444; /* Dark background for each quest item */
-    margin: 10px 0; /* Spacing between quest items */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners for the quest items */
+#currentQuest p, .counter-sp-display p {
+    margin: 10px 0;
 }
 
-#quests button {
-    background-color: #888; /* Lighter background for buttons to make them stand out */
+#questButton {
+    background-color: #888;
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 3px; /* Slightly rounded corners for buttons */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    border-radius: 3px;
+    transition: background-color 0.3s;
 }
 
-#quests button:hover {
-    background-color: #aaa; /* Lighter background when hovered */
+#questButton:hover {
+    background-color: #aaa;
 }
 
-#quests button:disabled {
-    background-color: #666; /* Dim the button to indicate it's disabled */
+#questButton:disabled {
+    background-color: #666;
     cursor: not-allowed;
 }
-
