@@ -3,6 +3,31 @@ let greenProgress = 0;
 let upgradeCost = 3;
 let fillRate = 1;
 let counter = 0;
+let specialPoints = 0;
+let questsCompleted = {1: false, 2: false, 3: false};
+
+function redeemQuest(questNumber, counterRequirement) {
+    if (counter >= counterRequirement && !questsCompleted[questNumber]) {
+        specialPoints += 1; // Award 1 SP
+        questsCompleted[questNumber] = true; // Mark quest as completed
+        document.getElementById("specialPoints").textContent = specialPoints; // Update SP display
+        alert(`Quest ${questNumber} completed! You earned 1 SP.`);
+        // Optionally, disable the redeem button for this quest
+        event.target.disabled = true;
+    } else {
+        alert(`Quest ${questNumber} not completed or already redeemed.`);
+    }
+}
+
+// Example redemption check. You might want to call this in a function that updates the counter.
+function checkQuests() {
+    Object.keys(questsCompleted).forEach(questNumber => {
+        if (counter >= quests[questNumber] && !questsCompleted[questNumber]) {
+            // Enable the button for redeeming this quest
+            document.querySelector(`#quest${questNumber} button`).disabled = false;
+        }
+    });
+}
 
 document.body.onkeydown = function(e) {
     if (e.keyCode === 32) { // Spacebar pressed
