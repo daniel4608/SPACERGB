@@ -5,6 +5,10 @@ CSS body, html {
     background: black;
     color: white;
     text-align: center; /* Center content horizontally */
+    width: 100%;  /* Full width */
+    height: 100%;  /* Full height */
+    overflow: hidden;  /* Hide overflow in both x and y axes */
+
 }
 
 body {
