@@ -71,7 +71,7 @@ document.getElementById('upgradeButton').onclick = function() {
     if (counter >= upgradeCost) {
         counter -= upgradeCost; // Deduct the cost
         fillRate += .5; // Increase fill rate
-        upgradeCost = Math.ceil(upgradeCost + 2 + upgradeCost * 0.5); // Calculate new cost
+        upgradeCost = Math.ceil(upgradeCost + 2 + upgradeCost * 0.1); // Calculate new cost
         document.getElementById('counter').textContent = counter; // Update counter display
         document.getElementById('upgradeCost').textContent = upgradeCost; // Update upgrade cost display
         if (messageElement) messageElement.remove(); // Remove the message if it exists
