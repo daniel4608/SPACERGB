@@ -6,6 +6,9 @@ let counter = 0;
 let currentQuestNumber = 1;
 let questRequirements = [100, 3319, 110157];
 let specialPoints = 0;
+let TC = 0
+let TSP = 0
+
 
 function updateQuestDisplay() {
     if (currentQuestNumber > questRequirements.length) {
@@ -22,6 +25,7 @@ function updateQuestDisplay() {
 function redeemQuest(questNumber, counterRequirement) {
     if (counter >= counterRequirement) {
         specialPoints += 1; // Award 1 SP
+        TSP += 1;
         document.getElementById("specialPoints").textContent = specialPoints; // Update SP display
         alert(`Quest ${questNumber} completed! You earned 1 SP.`);
         currentQuestNumber += 1; // Move to the next quest
@@ -43,6 +47,7 @@ function increaseRedProgress() {
     redProgress += fillRate;
     if (redProgress >= 100) {
         redProgress = 0; // Reset red progress
+        TC += 1;
         counter++; // Increase counter
         increaseGreenProgress(); // Increment green progress bar
     }
@@ -92,6 +97,6 @@ document.getElementById("statsButton").addEventListener("click", function() {
 });
 
 function updateStats() {
-    document.getElementById("totalCounterDisplay").textContent = counter; // Assume 'counter' holds the total counters value
-    document.getElementById("totalSPDisplay").textContent = specialPoints; // Assume 'specialPoints' holds the total SP value
+    document.getElementById("totalCounterDisplay").textContent = TC; // Update total counters in stats
+    document.getElementById("totalSPDisplay").textContent = TSP; // Assume 'specialPoints' holds the total SP value
 }
