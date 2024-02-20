@@ -1,5 +1,5 @@
 CSS body, html {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     padding: 0;
     background: black;
@@ -8,6 +8,7 @@ CSS body, html {
 }
 
 body {
+    min-height: 100vh; 
     background-image: linear-gradient(270deg, #0f0f0f, #001, #0f0f0f, #001);
     background-size: 400% 400%;
     animation: glow 20s ease infinite;
