@@ -1,0 +1,166 @@
+CSS body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    text-align: center; /* Center content horizontally */
+}
+
+body {
+    background-image: linear-gradient(270deg, #0f0f0f, #001, #0f0f0f, #001);
+    background-size: 400% 400%;
+    animation: glow 20s ease infinite;
+}
+
+
+#gameTitle {
+    font-family: "Space Mono", monospace;
+    font-size: 3rem;
+    padding: 50px;
+
+}
+
+.black-glow {
+    color: rgb(0, 0, 121);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 1); /* Adjust the glow effect as needed */
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
+
+@keyframes glow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.progress-container {
+    width: 50%; /* Set container width to 50% of the viewport width */
+    background-color: #222; /* Dark background for contrast */
+    margin: 20px auto; /* Center the container */
+    padding: 5px; /* Padding for aesthetic spacing */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the progress bar stays within the container */
+}
+
+.progress-bar {
+    text-align: center;
+    height: 50px; /* Height of the progress bar */
+    color: white; /* Color of the text inside the progress bar */
+    width: 0%;
+ 
+}
+
+#redProgressBar {
+    background-color: #f00; /* Red color for the progress bar */
+    border-radius: 5px;
+}
+
+#greenProgressBar {
+    background-color: #0f0; /* Green color for the progress bar */
+    border-radius: 5px;
+}
+
+button {
+    background-color: #333; /* Dark button background for contrast */
+    color: white; /* Button text color */
+    border: none; /* Removes the default border */
+    padding: 10px 20px; /* Padding inside the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    border-radius: 5px; /* Rounded corners for the button */
+}
+
+
+
+
+
+button:hover {
+    background-color: #444; /* Lightens the button on hover for visual feedback */
+}
+
+#message {
+    color: red; /* Color for the "Not enough" message */
+    margin-top: 10px; /* Space above the message */
+}
+#upgradesMenu {
+    position: fixed;
+    top: 50%;
+    right: 20px; /* Adjust as needed for spacing from the right edge */
+    transform: translateY(-50%);
+    background-color: #333; /* Dark background for visibility */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1000; /* Ensure the menu stays on top */
+    width: 200px; /* Set a fixed width for the menu */
+}
+
+#toggleMenu {
+    background-color: #444; /* Lighter than the menu for contrast */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%; /* Ensure the toggle button fills the menu width */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+
+#upgradesContent {
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease, background-color 0.5s ease; /* Include padding and background-color transitions */
+    margin-top: 5px;
+    max-height: 0; /* Start with max-height 0 to hide content */
+    overflow: hidden; /* Hide the overflow content */
+    background-color: #555; /* Slightly lighter for distinction */
+    border-radius: 5px; /* Consistent rounded corners */
+    transition: max-height 0.2s ease-in-out; /* Smooth transition for max-height */
+    padding: 0 30px; /* Horizontal padding */
+
+}
+
+#upgradesMenu:hover #upgradesContent {
+    padding: 10px;
+    max-height: 50px; /* Adjust as needed - large enough to show all content */
+
+}
+
+#upgradesMenu:hover #toggleMenu {
+    background-color: #555; /* Change toggle button color on hover for a single effect */
+}
+
+/* Styling for buttons inside the content for consistency */
+#upgradesContent button {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+
+#upgradesContent:hover {
+    padding: 10px;
+    background-color: #777; /* Highlight on hover */
+}
+
+
+#upgradesContent button:hover {
+    background-color: #709369; /* Highlight on hover */
+}
+
