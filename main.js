@@ -3,31 +3,34 @@ let greenProgress = 0;
 let upgradeCost = 3;
 let fillRate = 1;
 let counter = 0;
-let specialPoints = 0;
-let questsCompleted = {1: false, 2: false, 3: false};
+let currentQuestNumber = 1;
+let questRequirements = [100, 3319, 110157];
+
+function updateQuestDisplay() {
+    if (currentQuestNumber > questRequirements.length) {
+        // No more quests available
+        document.getElementById("currentQuest").style.display = "none";
+        return;
+    }
+    
+    let questRequirement = questRequirements[currentQuestNumber - 1];
+    document.getElementById("questDescription").textContent = `Quest ${currentQuestNumber}: Collect ${questRequirement} counters`;
+    document.getElementById("questButton").onclick = function() { redeemQuest(currentQuestNumber, questRequirement); };
+}
 
 function redeemQuest(questNumber, counterRequirement) {
-    if (counter >= counterRequirement && !questsCompleted[questNumber]) {
+    if (counter >= counterRequirement) {
         specialPoints += 1; // Award 1 SP
-        questsCompleted[questNumber] = true; // Mark quest as completed
         document.getElementById("specialPoints").textContent = specialPoints; // Update SP display
         alert(`Quest ${questNumber} completed! You earned 1 SP.`);
-        // Optionally, disable the redeem button for this quest
-        event.target.disabled = true;
+        currentQuestNumber += 1; // Move to the next quest
+        updateQuestDisplay(); // Update the quest display
     } else {
-        alert(`Quest ${questNumber} not completed or already redeemed.`);
+        alert(`Quest ${questNumber} not completed.`);
     }
 }
 
-// Example redemption check. You might want to call this in a function that updates the counter.
-function checkQuests() {
-    Object.keys(questsCompleted).forEach(questNumber => {
-        if (counter >= quests[questNumber] && !questsCompleted[questNumber]) {
-            // Enable the button for redeeming this quest
-            document.querySelector(`#quest${questNumber} button`).disabled = false;
-        }
-    });
-}
+updateQuestDisplay();
 
 document.body.onkeydown = function(e) {
     if (e.keyCode === 32) { // Spacebar pressed
