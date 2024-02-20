@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Montserrat:wght@800&family=Open+Sans:wght@600&family=Roboto+Slab:wght@600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACERGB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameTitle">
+        <span class="black-glow">SPACE</span><span class="red">R</span><span class="green">G</span><span class="blue">B</span>
+    </div>
+    
+    <div class="progress-container" id="redProgressContainer">
+        <div class="progress-bar" id="redProgressBar">0%</div>
+    </div>
+    <div class="progress-container" id="greenProgressContainer">
+        <div class="progress-bar" id="greenProgressBar">0%</div>
+    </div>
+    <p>Counter: <span id="counter">0</span></p>
+    <div id="upgradesMenu">
+        <button id="toggleMenu">Upgrades</button>
+        <div id="upgradesContent">
+        <button id="upgradeButton">Upgrade (Cost: <span id="upgradeCost">3</span>)</button>
+            <!-- Additional upgrade options can be added here -->
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
+
 
