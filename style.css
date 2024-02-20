@@ -207,3 +207,24 @@ button:hover {
     background-color: #666;
     cursor: not-allowed;
 }
+
+
+#statsButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#statsSection {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
