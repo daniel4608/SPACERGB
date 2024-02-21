@@ -49,7 +49,8 @@ function increaseRedProgress() {
         redProgress = 0; // Reset red progress
         TC += 1;
         counter++; // Increase counter
-        increaseGreenProgress(); // Increment green progress bar
+        increaseGreenProgress();
+        showGreenProgressBar();
     }
     updateProgressBar('redProgressBar', redProgress);
     document.getElementById('counter').textContent = counter; // Update counter display
@@ -99,4 +100,10 @@ document.getElementById("statsButton").addEventListener("click", function() {
 function updateStats() {
     document.getElementById("totalCounterDisplay").textContent = TC; // Update total counters in stats
     document.getElementById("totalSPDisplay").textContent = TSP; // Assume 'specialPoints' holds the total SP value
+}
+
+function showGreenProgressBar() {
+    var greenProgressContainer = document.getElementById('greenProgressContainer');
+    greenProgressContainer.style.opacity = 1; // Make it fully opaque
+    greenProgressContainer.style.visibility = 'visible'; // Change visibility to visible
 }
