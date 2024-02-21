@@ -228,3 +228,10 @@ button:hover {
     border-radius: 5px;
 }
 
+#greenProgressContainer {
+    opacity: 0; /* Start fully transparent */
+    visibility: hidden; /* Hide the element */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition for both properties */
+}
+
+
