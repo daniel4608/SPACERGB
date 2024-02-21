@@ -40,6 +40,7 @@ updateQuestDisplay();
 document.body.onkeydown = function(e) {
     if (e.keyCode === 32) { // Spacebar pressed
         increaseRedProgress();
+        saveGame();
     }
 };
 
