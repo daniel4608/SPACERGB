@@ -103,6 +103,48 @@ function updateStats() {
     document.getElementById("totalSPDisplay").textContent = TSP; // Assume 'specialPoints' holds the total SP value
 }
 
+let purchasedUpgrades = {
+    doubleCounter: false,
+    increaseFillRate: false,
+    halfProgress: false
+};
+
+function buyUpgrade(upgradeType) {
+    const upgradeCosts = {
+        doubleCounter: 3,
+        increaseFillRate: 2,
+        halfProgress: 5
+    };
+    
+    if (specialPoints >= upgradeCosts[upgradeType] && !purchasedUpgrades[upgradeType]) {
+        specialPoints -= upgradeCosts[upgradeType]; // Deduct the cost
+        purchasedUpgrades[upgradeType] = true; // Mark as purchased
+        applyUpgradeEffect(upgradeType); // Apply the upgrade effect
+        document.getElementById("specialPoints").textContent = specialPoints; // Update SP display
+        alert("Upgrade purchased successfully!");
+    } else if (purchasedUpgrades[upgradeType]) {
+        alert("This upgrade has already been purchased.");
+    } else {
+        alert("Not enough Special Points.");
+    }
+}
+
+function applyUpgradeEffect(upgradeType) {
+    switch (upgradeType) {
+        case 'doubleCounter':
+            // Logic to double counter per 100 progress (You need to integrate this into your progress update logic)
+            break;
+        case 'increaseFillRate':
+            // Logic to increase fill rate by 0.05 per achievement (Adjust fillRate variable accordingly)
+            fillRate += 0.05;
+            break;
+        case 'halfProgress':
+            // Logic to only need to reach 50% for progress bar (Adjust progress bar completion check accordingly)
+            break;
+    }
+    // Remember to update relevant game state or UI here if necessary
+}
+
 function showGreenProgressBar() {
     var greenProgressContainer = document.getElementById('greenProgressContainer');
     greenProgressContainer.style.opacity = 1; // Make it fully opaque
