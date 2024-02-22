@@ -9,8 +9,9 @@ let specialPoints = 0;
 let TC = 0
 let TSP = 0
 let RedReq = 100
-let CIA = 1
+let CIA = 1 
 
+document.getElementById('counter').textContent = counter;
 
 function updateQuestDisplay() {
     if (currentQuestNumber > questRequirements.length) {
