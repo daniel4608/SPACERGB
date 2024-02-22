@@ -8,6 +8,7 @@ let questRequirements = [100, 3319, 110157];
 let specialPoints = 0;
 let TC = 0
 let TSP = 0
+let RedReq = 100
 
 
 function updateQuestDisplay() {
@@ -46,7 +47,7 @@ document.body.onkeydown = function(e) {
 
 function increaseRedProgress() {
     redProgress += fillRate;
-    if (redProgress >= 100) {
+    if (redProgress >= RedReq) {
         redProgress = 0; // Reset red progress
         TC += 1;
         counter++; // Increase counter
@@ -111,9 +112,9 @@ let purchasedUpgrades = {
 
 function buyUpgrade(upgradeType) {
     const upgradeCosts = {
-        doubleCounter: 3,
-        increaseFillRate: 2,
-        halfProgress: 5
+        doubleCounter: 1,
+        increaseFillRate: 1,
+        halfProgress: 1
     };
     
     if (specialPoints >= upgradeCosts[upgradeType] && !purchasedUpgrades[upgradeType]) {
@@ -132,17 +133,17 @@ function buyUpgrade(upgradeType) {
 function applyUpgradeEffect(upgradeType) {
     switch (upgradeType) {
         case 'doubleCounter':
-            // Logic to double counter per 100 progress (You need to integrate this into your progress update logic)
+            
             break;
         case 'increaseFillRate':
             // Logic to increase fill rate by 0.05 per achievement (Adjust fillRate variable accordingly)
             fillRate += 0.05;
             break;
         case 'halfProgress':
-            // Logic to only need to reach 50% for progress bar (Adjust progress bar completion check accordingly)
+            RedReq = 50
+            
             break;
     }
-    // Remember to update relevant game state or UI here if necessary
 }
 
 function showGreenProgressBar() {
