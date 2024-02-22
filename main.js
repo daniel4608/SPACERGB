@@ -68,8 +68,10 @@ function increaseGreenProgress() {
 
 function updateProgressBar(barId, progress) {
     const progressBar = document.getElementById(barId);
-    progressBar.style.width = `${progress}%`; // Set width using the actual progress value
-    progressBar.textContent = `${Math.floor(progress)}%`; // Display rounded down number
+    const adjustedProgress = progress * CIA; // Multiply progress by CIA
+    progressBar.style.width = `${adjustedProgress}%`; // Set width using the adjusted progress value
+    progressBar.textContent = `${Math.floor(progress)}%`; // Display rounded down number of original progress
+}
 }
 document.getElementById('upgradeButton').onclick = function() {
     const messageElement = document.getElementById('message');
