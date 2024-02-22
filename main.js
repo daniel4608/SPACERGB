@@ -9,6 +9,7 @@ let specialPoints = 0;
 let TC = 0
 let TSP = 0
 let RedReq = 100
+let CIA = 1
 
 
 function updateQuestDisplay() {
@@ -50,7 +51,7 @@ function increaseRedProgress() {
     if (redProgress >= RedReq) {
         redProgress = 0; // Reset red progress
         TC += 1;
-        counter++; // Increase counter
+        counter += CIA;
         increaseGreenProgress();
         showGreenProgressBar();
     }
@@ -133,6 +134,7 @@ function buyUpgrade(upgradeType) {
 function applyUpgradeEffect(upgradeType) {
     switch (upgradeType) {
         case 'doubleCounter':
+            CIA += 1
             
             break;
         case 'increaseFillRate':
