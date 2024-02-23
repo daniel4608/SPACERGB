@@ -72,7 +72,7 @@ function updateProgressBar(barId, progress) {
     progressBar.style.width = `${adjustedProgress}%`; // Set width using the adjusted progress value
     progressBar.textContent = `${Math.floor(progress)}%`; // Display rounded down number of original progress
 }
-}
+
 document.getElementById('upgradeButton').onclick = function() {
     const messageElement = document.getElementById('message');
     if (counter >= upgradeCost) {
