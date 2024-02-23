@@ -238,41 +238,31 @@ button:hover {
 #spUpgradesMenu {
     position: fixed;
     left: 0;
-    top: 20%; /* Adjust based on your layout */
+    top: 100px; /* Adjust based on your layout */
     background-color: #333;
     padding: 10px;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    width: 200px; /* Ensure this is enough to fit your content */
 }
 
-#spUpgradesMenu span {
+#spUpgradesMenu .menu-title {
     color: white;
-    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .dropdown-content {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.5s ease, max-height 0.5s ease;
-    background-color: #444;
-    border-radius: 5px;
-    padding: 0;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    display: none;
 }
 
 #spUpgradesMenu:hover .dropdown-content {
-    opacity: 1;
-    max-height: 200px; /* Adjust as needed */
+    display: block;
+    background-color: #444;
     padding: 10px;
+    border-radius: 5px;
 }
 
-#spUpgradesMenu:hover {
-    background-color: #444; /* Darken the menu background slightly on hover */
-}
-
-#spUpgradesList button {
+.dropdown-content button {
     color: white;
     padding: 10px;
     margin: 5px 0;
@@ -280,11 +270,10 @@ button:hover {
     border: 1px solid #555;
     width: 100%;
     text-align: left;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
 }
 
-#spUpgradesList button:hover {
+.dropdown-content button:hover {
     background-color: #555;
-    border-color: #777;
 }
+
