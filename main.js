@@ -156,3 +156,43 @@ function showGreenProgressBar() {
     greenProgressContainer.style.opacity = 1; // Make it fully opaque
     greenProgressContainer.style.visibility = 'visible'; // Change visibility to visible
 }
+
+
+const achievements = [
+    { id: 1, name: "First Steps", requirement: 15, unlocked: false },
+    { id: 2, name: "Getting There", requirement: 30, unlocked: false },
+    // Add more achievements as needed
+];
+
+// Check for achievements whenever TC is updated
+function checkAchievements() {
+    achievements.forEach(achievement => {
+        if (TC >= achievement.requirement && !achievement.unlocked) {
+            achievement.unlocked = true;
+            showAchievementPopup(achievement.name);
+            updateAchievementsMenu();
+            // Optionally save achievements state to localStorage
+        }
+    });
+}
+
+function showAchievementPopup(name) {
+    const popup = document.getElementById("achievementPopup");
+    popup.textContent = `Achievement Unlocked: ${name}`;
+    popup.style.display = "block";
+    setTimeout(() => { popup.style.display = "none"; }, 5000); // Hide after 5 seconds
+}
+
+function updateAchievementsMenu() {
+    const list = document.getElementById("achievementsList");
+    list.innerHTML = ''; // Clear current list
+    achievements.forEach(achievement => {
+        const item = document.createElement("div");
+        item.textContent = achievement.name + (achievement.unlocked ? " - Unlocked" : " - Locked");
+        list.appendChild(item);
+    });
+}
+
+// Example of calling checkAchievements (you'd call this when TC updates)
+// checkAchievements();
+
