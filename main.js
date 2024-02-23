@@ -53,6 +53,7 @@ function increaseRedProgress() {
         redProgress = 0; // Reset red progress
         TC += 1;
         counter += CIA;
+        checkAchievements();
         increaseGreenProgress();
         showGreenProgressBar();
     }
@@ -189,9 +190,13 @@ function updateAchievementsMenu() {
     achievements.forEach(achievement => {
         const item = document.createElement("div");
         item.textContent = achievement.name + (achievement.unlocked ? " - Unlocked" : " - Locked");
+        item.style.color = "#000"; // Explicitly set text color if necessary
         list.appendChild(item);
     });
 }
+
+// Call this function to initially populate the achievements list
+document.addEventListener('DOMContentLoaded', updateAchievementsMenu);
 
 // Example of calling checkAchievements (you'd call this when TC updates)
 // checkAchievements();
