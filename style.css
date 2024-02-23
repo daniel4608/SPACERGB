@@ -235,46 +235,56 @@ button:hover {
 }
 
 
-#upgradesDropdown {
+#spUpgradesMenu {
     position: fixed;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 20%; /* Adjust based on your layout */
     background-color: #333;
     padding: 10px;
-    border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+    border-radius: 0 5px 5px 0;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#upgradesDropdown span {
+#spUpgradesMenu span {
     color: white;
     font-weight: bold;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    left: 100%;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
     background-color: #444;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
+    border-radius: 5px;
+    padding: 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.dropdown-content button {
+#spUpgradesMenu:hover .dropdown-content {
+    opacity: 1;
+    max-height: 200px; /* Adjust as needed */
+    padding: 10px;
+}
+
+#spUpgradesMenu:hover {
+    background-color: #444; /* Darken the menu background slightly on hover */
+}
+
+#spUpgradesList button {
     color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    background-color: transparent;
-    border: none;
-    text-align: left;
-    cursor: pointer;
+    padding: 10px;
+    margin: 5px 0;
+    background: none;
+    border: 1px solid #555;
     width: 100%;
+    text-align: left;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.dropdown-content button:hover {background-color: #555;}
-
-#upgradesDropdown:hover .dropdown-content {
-    display: block;
+#spUpgradesList button:hover {
+    background-color: #555;
+    border-color: #777;
 }
