@@ -159,45 +159,37 @@ function showGreenProgressBar() {
 }
 
 
-const achievements = [
-    { id: 1, name: "First Steps", requirement: 15, unlocked: false },
-    { id: 2, name: "Getting There", requirement: 30, unlocked: false },
+// Sample achievements data
+const achievementsData = [
+    { id: 1, name: "First Step", description: "Get 100 counters", unlocked: false },
     // Add more achievements as needed
 ];
 
-// Check for achievements whenever TC is updated
-function checkAchievements() {
-    achievements.forEach(achievement => {
-        if (TC >= achievement.requirement && !achievement.unlocked) {
-            achievement.unlocked = true;
-            showAchievementPopup(achievement.name);
-            updateAchievementsMenu();
-            // Optionally save achievements state to localStorage
+document.getElementById('achievementsPageButton').addEventListener('click', function() {
+    document.getElementById('achievementsPage').style.display = 'block'; // Show achievements page
+    populateAchievements();
+});
+
+document.getElementById('closeAchievementsPageButton').addEventListener('click', function() {
+    document.getElementById('achievementsPage').style.display = 'none'; // Hide achievements page
+});
+
+function populateAchievements() {
+    const container = document.getElementById('achievementsContainer');
+    container.innerHTML = ''; // Clear existing achievements
+
+    achievementsData.forEach(achievement => {
+        const icon = document.createElement('div');
+        icon.className = 'achievement-icon';
+        if (!achievement.unlocked) {
+            icon.classList.add('locked');
         }
+
+        const detail = document.createElement('div');
+        detail.className = 'achievement-detail';
+        detail.textContent = `${achievement.name} - ${achievement.description}`;
+        icon.appendChild(detail);
+
+        container.appendChild(icon);
     });
 }
-
-function showAchievementPopup(name) {
-    const popup = document.getElementById("achievementPopup");
-    popup.textContent = `Achievement Unlocked: ${name}`;
-    popup.style.display = "block";
-    setTimeout(() => { popup.style.display = "none"; }, 5000); // Hide after 5 seconds
-}
-
-function updateAchievementsMenu() {
-    const list = document.getElementById("achievementsList");
-    list.innerHTML = ''; // Clear current list
-    achievements.forEach(achievement => {
-        const item = document.createElement("div");
-        item.textContent = achievement.name + (achievement.unlocked ? " - Unlocked" : " - Locked");
-        item.style.color = "#000"; // Explicitly set text color if necessary
-        list.appendChild(item);
-    });
-}
-
-// Call this function to initially populate the achievements list
-document.addEventListener('DOMContentLoaded', updateAchievementsMenu);
-
-// Example of calling checkAchievements (you'd call this when TC updates)
-// checkAchievements();
-
